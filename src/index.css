@@ -4,3 +4,8 @@
 html {
   font-family: "Quicksand";
 }
+
+.center {
+  left: 50%;
+  translate: -50%;
+}

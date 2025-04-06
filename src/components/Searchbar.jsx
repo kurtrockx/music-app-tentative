@@ -6,7 +6,11 @@ export default function Searchbar() {
         className="w-32 px-px text-white outline-0 duration-200 focus:w-48"
         placeholder="Search"
       />
-      <img src="searchIcon.svg" alt="search-icon" className="h-6 cursor-pointer" />
+      <img
+        src="searchIcon.svg"
+        alt="search-icon"
+        className="h-6 cursor-pointer"
+      />
     </div>
   );
 }
