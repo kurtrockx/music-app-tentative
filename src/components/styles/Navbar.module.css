@@ -1,0 +1,4 @@
+.nav :global(.active) {
+  background: white;
+  color: black;
+}
