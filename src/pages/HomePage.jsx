@@ -6,7 +6,7 @@ import SectionContainer from "../components/SectionContainer";
 
 export default function Homepage() {
   return (
-    <MainContainer className={"space-y-12"}>
+    <MainContainer className={"space-y-20"}>
       <Navbar />
       <SectionContainer className={"space-y-4"}>
         <Logo height={400} className={"mx-auto"} />
