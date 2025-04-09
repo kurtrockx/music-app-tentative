@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
 import { useState } from "react";
 import Homepage from "./pages/HomePage";
 import SongPage from "./pages/SongPage";
@@ -18,7 +18,7 @@ export default function App() {
   const accessToken = useSpotifyToken(base64Credentials);
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <MainContainer>
         <Navbar />
         <Routes>
@@ -35,6 +35,6 @@ export default function App() {
           <Route path="/favorite" element={<FavoritePage />} />
         </Routes>
       </MainContainer>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
