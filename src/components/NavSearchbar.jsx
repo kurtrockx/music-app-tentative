@@ -3,14 +3,13 @@ import searchIcon from "../assets/searchIcon.svg";
 import { useState } from "react";
 
 export default function NavSearchbar() {
-  const [query, setQuery] = useState("");
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const q = searchParams.get("q");
 
   function handleClick() {
+    if (q) return;
     navigate("/search");
-    if (!q) return;
   }
 
   function handleChange(e) {
