@@ -14,11 +14,15 @@ export default function Song({ song, newRelease = false }) {
         className="block size-24 rounded-tl-xl rounded-bl-xl object-cover"
       />
       <div className="flex h-full flex-1 flex-col rounded-tr-xl rounded-br-xl bg-gradient-to-b from-transparent from-20% to-black/20 px-4 py-2 duration-500">
-        <h1 className="line-clamp-1 max-w-[90%] text-lg font-medium text-white">
+        <h1 className="line-clamp-1 text-lg font-medium text-white max-md:text-base max-sm:text-sm">
           {name}
         </h1>
-        <h3 className="text-xs text-white/80">Artist: {artists}</h3>
-        <p className="mt-auto self-end text-xs text-white">{duration}</p>
+        <h3 className="text-xs text-white/80 max-md:text-[.7rem]">
+          Artists: {artists}
+        </h3>
+        <p className="mt-auto self-end text-xs text-white max-md:text-xs">
+          {duration}m
+        </p>
       </div>
     </article>
   );
