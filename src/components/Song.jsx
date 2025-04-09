@@ -21,7 +21,7 @@ export default function Song({ song, newRelease = false }) {
           Artists: {artists}
         </h3>
         <p className="mt-auto self-end text-xs text-white max-md:text-xs">
-          {duration}m
+          {duration}
         </p>
       </div>
     </article>
