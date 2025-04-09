@@ -1,7 +1,7 @@
 export default function Song({ song, newRelease = false }) {
   const { name } = song;
   const artists = song.artists.map((artist) => artist.name).join(", ");
-  const image = newRelease ? song.images[1].url : song.album.images[1].url;
+  const image = newRelease ? song.images[2].url : song.album.images[1].url;
   const duration = newRelease
     ? ""
     : (song.duration_ms / 1000 / 60).toFixed(2).split(".").join(":");

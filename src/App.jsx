@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import Homepage from "./pages/HomePage";
 import SongPage from "./pages/SongPage";
 import ArtistPage from "./pages/ArtistPage";
@@ -13,34 +13,21 @@ const clientId = "fc11c6d55eee4959a8ce90156b0e90ae";
 const clientSecret = "e7d5a5b1d4ed455c933c9522e4782d77";
 const base64Credentials = btoa(`${clientId}:${clientSecret}`);
 
+
 export default function App() {
-  const [initialsongs, setInitialSongs] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const accessToken = useSpotifyToken(base64Credentials);
 
-  useEffect(() => {
-    if (!accessToken) return;
-    fetch(`https://api.spotify.com/v1/browse/new-releases?limit=10`, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setInitialSongs(data.albums.items);
-      })
-      .catch((error) => console.error("Error:", error));
-  }, [accessToken]);
 
   return (
     <BrowserRouter>
       <MainContainer>
-        <Navbar/>
+        <Navbar />
         <Routes>
           <Route index element={<Homepage isLoading={isLoading} />} />
           <Route
             path="/newRelease"
-            element={<NewReleasesPage initialSongs={initialsongs} />}
+            element={<NewReleasesPage accessToken={accessToken} />}
           />
           <Route
             path="/search/:id"
