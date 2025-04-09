@@ -14,7 +14,7 @@ export default function Song({ song, newRelease = false }) {
         className="block size-24 rounded-tl-xl rounded-bl-xl object-cover"
       />
       <div className="flex h-full flex-1 flex-col rounded-tr-xl rounded-br-xl bg-gradient-to-b from-transparent from-20% to-black/20 px-4 py-2 duration-500">
-        <h1 className="line-clamp-1 max-w-[80%] text-lg font-medium text-white">
+        <h1 className="line-clamp-1 max-w-[90%] text-lg font-medium text-white">
           {name}
         </h1>
         <h3 className="text-xs text-white/80">Artist: {artists}</h3>

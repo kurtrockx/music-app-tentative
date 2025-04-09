@@ -1,45 +1,40 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 import styles from "./styles/Navbar.module.css";
 import Logo from "./Logo";
 import NavSearchbar from "./NavSearchbar";
+import TabLinks from "./TabLinks";
+import SideBar from "./SideBar";
+import burgerIcon from "../assets/burger.svg";
 
 export default function Navbar() {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  function handleSidebarToggle() {
+    setSidebarOpen((curState) => !curState);
+  }
 
   return (
     <nav
       className={`relative flex items-center justify-between py-4 ${styles.nav}`}
     >
-      <Link to="/" className="flex items-center gap-2">
+      <button className={"lg:hidden"} onClick={handleSidebarToggle}>
+        <img
+          src={burgerIcon}
+          alt="burger"
+          className="aspect-square w-12 cursor-pointer rounded-full p-2 text-white hover:bg-white/20 active:bg-white/30"
+        />
+      </button>
+      <SideBar
+        bgClassName={`lg:hidden ${!sidebarOpen ? "hidden" : "block"}`}
+        onClick={handleSidebarToggle}
+      />
+      <Link to="/" className="flex items-center gap-2 max-[480px]:hidden">
         <Logo height={52} />
         <h3 className="font-semibold text-white">Music App</h3>
       </Link>
-      <ul className="center absolute flex divide-x divide-white overflow-hidden rounded-full border border-white">
-        <li>
-          <NavLink
-            to="/newRelease"
-            className="block px-6 py-2 text-sm font-semibold text-white hover:bg-white/4"
-          >
-            NEW RELEASES
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/artist"
-            className="block px-6 py-2 text-sm font-semibold text-white hover:bg-white/4"
-          >
-            ARTIST
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/favorite"
-            className="block px-6 py-2 text-sm font-semibold text-white hover:bg-white/4"
-          >
-            FAVORITE
-          </NavLink>
-        </li>
-      </ul>
-      <NavSearchbar  />
+      <TabLinks className={"max-lg:hidden"} />
+      <NavSearchbar />
     </nav>
   );
 }
