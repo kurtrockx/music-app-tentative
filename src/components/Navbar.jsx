@@ -16,7 +16,7 @@ export default function Navbar() {
         <li>
           <NavLink
             to="/song"
-            className="block px-6 py-2 text-sm font-semibold text-white"
+            className="block px-6 py-2 text-sm font-semibold text-white hover:bg-white/4"
           >
             SONG
           </NavLink>
@@ -24,7 +24,7 @@ export default function Navbar() {
         <li>
           <NavLink
             to="/artist"
-            className="block px-6 py-2 text-sm font-semibold text-white"
+            className="block px-6 py-2 text-sm font-semibold text-white hover:bg-white/4"
           >
             ARTIST
           </NavLink>
@@ -32,7 +32,7 @@ export default function Navbar() {
         <li>
           <NavLink
             to="/favorite"
-            className="block px-6 py-2 text-sm font-semibold text-white"
+            className="block px-6 py-2 text-sm font-semibold text-white hover:bg-white/4"
           >
             FAVORITE
           </NavLink>
