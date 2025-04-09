@@ -1,6 +1,6 @@
 export default function Song({ song }) {
   return (
-    <article className="flex items-center rounded-xl">
+    <article className="flex cursor-pointer items-center rounded-xl active:bg-black/20 hover:bg-white/5">
       <img
         src="https://images.steamusercontent.com/ugc/2077905881206873656/414B28E2E20E69B3F123A3D900889CC23C928017/?imw=512&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false"
         alt="song image"
