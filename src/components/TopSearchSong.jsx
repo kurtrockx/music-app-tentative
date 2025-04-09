@@ -1,16 +1,20 @@
-export default function TopSearchSong() {
+export default function TopSearchSong({ song }) {
+  const { name } = song;
+  const artists = song.artists.map((artist) => artist.name).join(", ");
+  const image = song.album.images[1].url;
+  const duration = (song.duration_ms / 1000 / 60)
+    .toFixed(2)
+    .split(".")
+    .join(":");
+
   return (
-    <article className="col-span-2 flex h-48 w-1/2 cursor-pointer place-self-end overflow-hidden rounded-xl bg-black/40 text-white hover:bg-white/10 active:bg-black">
-      <img
-        src="https://images.steamusercontent.com/ugc/2077905881206873656/414B28E2E20E69B3F123A3D900889CC23C928017/?imw=512&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false"
-        alt="song image"
-        className="block object-cover"
-      />
+    <article className="col-span-2 flex h-48 w-full cursor-pointer place-self-end overflow-hidden rounded-xl bg-black/40 text-white hover:bg-white/10 active:bg-black">
+      <img src={image} alt="song image" className="block object-cover" />
       <div className="flex h-full flex-1 flex-col bg-gradient-to-br from-transparent from-20% to-white/4 px-4 py-6 duration-500">
-        <h1 className="text-4xl text-white font-semibold">Understand</h1>
+        <h1 className="text-4xl font-semibold text-white">{name}</h1>
         <h2 className="text-base text-white/40">Album: (Alumni)</h2>
-        <h3 className="text-white/80">Artist: Boywithuke</h3>
-        <p className="mt-auto self-end text-sm">Duration: 3:54</p>
+        <h3 className="text-white/80">Artists: {artists}</h3>
+        <p className="mt-auto self-end text-sm">Duration: {duration}</p>
       </div>
     </article>
   );

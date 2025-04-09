@@ -6,15 +6,18 @@ import Song from "../components/Song";
 import TopSearchSong from "../components/TopSearchSong.jsx";
 
 export default function SongPage({ songs }) {
+  const topSearch = songs[0];
+  const songList = songs.slice(1);
+
   return (
     <MainContainer className={"flex flex-col justify-between"}>
       <Navbar />
       <SectionContainer className={"flex h-10/12 flex-col gap-2"}>
         <div className="flex">
-          <TopSearchSong />
+          <TopSearchSong song={topSearch} />
         </div>
         <SongList>
-          {songs.map((song) => (
+          {songList.map((song) => (
             <Song song={song} key={song.id} />
           ))}
         </SongList>
