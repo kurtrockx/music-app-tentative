@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import styles from "./styles/Navbar.module.css";
 import Logo from "./Logo";
-import Searchbar from "./Searchbar";
+import NavSearchbar from "./NavSearchbar";
 
 export default function Navbar() {
   return (
@@ -38,7 +38,7 @@ export default function Navbar() {
           </NavLink>
         </li>
       </ul>
-      <Searchbar />
+      <NavSearchbar />
     </nav>
   );
 }

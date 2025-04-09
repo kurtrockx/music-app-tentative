@@ -1,4 +1,4 @@
-export default function Searchbar() {
+export default function NavSearchbar() {
   return (
     <div className="flex items-center gap-2 rounded-sm border border-white px-2 py-2">
       <input

@@ -1,0 +1,157 @@
+{
+  "songs": [
+    {
+      "id": 1,
+      "title": "Shape of You",
+      "artist": "Ed Sheeran",
+      "album": "Divide",
+      "genre": "Pop",
+      "releaseYear": 2017,
+      "duration": "3:53"
+    },
+    {
+      "id": 2,
+      "title": "Blinding Lights",
+      "artist": "The Weeknd",
+      "album": "After Hours",
+      "genre": "Synthwave",
+      "releaseYear": 2020,
+      "duration": "3:20"
+    },
+    {
+      "id": 3,
+      "title": "Bohemian Rhapsody",
+      "artist": "Queen",
+      "album": "A Night at the Opera",
+      "genre": "Rock",
+      "releaseYear": 1975,
+      "duration": "5:55"
+    },
+    {
+      "id": 4,
+      "title": "Rolling in the Deep",
+      "artist": "Adele",
+      "album": "21",
+      "genre": "Soul",
+      "releaseYear": 2010,
+      "duration": "3:48"
+    },
+    {
+      "id": 5,
+      "title": "Hotel California",
+      "artist": "Eagles",
+      "album": "Hotel California",
+      "genre": "Rock",
+      "releaseYear": 1976,
+      "duration": "6:30"
+    },
+    {
+      "id": 6,
+      "title": "Someone Like You",
+      "artist": "Adele",
+      "album": "21",
+      "genre": "Soul",
+      "releaseYear": 2011,
+      "duration": "4:45"
+    },
+    {
+      "id": 7,
+      "title": "Smells Like Teen Spirit",
+      "artist": "Nirvana",
+      "album": "Nevermind",
+      "genre": "Grunge",
+      "releaseYear": 1991,
+      "duration": "5:01"
+    },
+    {
+      "id": 8,
+      "title": "Uptown Funk",
+      "artist": "Mark Ronson ft. Bruno Mars",
+      "album": "Uptown Special",
+      "genre": "Funk",
+      "releaseYear": 2014,
+      "duration": "4:30"
+    },
+    {
+      "id": 9,
+      "title": "Imagine",
+      "artist": "John Lennon",
+      "album": "Imagine",
+      "genre": "Soft Rock",
+      "releaseYear": 1971,
+      "duration": "3:03"
+    },
+    {
+      "id": 10,
+      "title": "Hey Jude",
+      "artist": "The Beatles",
+      "album": "Hey Jude",
+      "genre": "Rock",
+      "releaseYear": 1968,
+      "duration": "7:11"
+    },
+    {
+      "id": 11,
+      "title": "Billie Jean",
+      "artist": "Michael Jackson",
+      "album": "Thriller",
+      "genre": "Pop",
+      "releaseYear": 1982,
+      "duration": "4:54"
+    },
+    {
+      "id": 12,
+      "title": "Stairway to Heaven",
+      "artist": "Led Zeppelin",
+      "album": "Led Zeppelin IV",
+      "genre": "Rock",
+      "releaseYear": 1971,
+      "duration": "8:02"
+    },
+    {
+      "id": 13,
+      "title": "Thinking Out Loud",
+      "artist": "Ed Sheeran",
+      "album": "x",
+      "genre": "Pop",
+      "releaseYear": 2014,
+      "duration": "4:41"
+    },
+    {
+      "id": 14,
+      "title": "Let It Be",
+      "artist": "The Beatles",
+      "album": "Let It Be",
+      "genre": "Rock",
+      "releaseYear": 1970,
+      "duration": "4:03"
+    },
+    {
+      "id": 15,
+      "title": "Wonderwall",
+      "artist": "Oasis",
+      "album": "(What's the Story) Morning Glory?",
+      "genre": "Britpop",
+      "releaseYear": 1995,
+      "duration": "4:18"
+    },
+    {
+      "id": 16,
+      "title": "Hallelujah",
+      "artist": "Leonard Cohen",
+      "album": "Various Positions",
+      "genre": "Folk",
+      "releaseYear": 1984,
+      "duration": "4:39"
+    },
+    {
+      "id": 17,
+      "title": "Shake It Off",
+      "artist": "Taylor Swift",
+      "album": "1989",
+      "genre": "Pop",
+      "releaseYear": 2014,
+      "duration": "3:39"
+    }
+  ]
+}

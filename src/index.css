@@ -15,7 +15,7 @@ html::before {
   height: 100%;
   background: linear-gradient(
     to top,
-   oklch(55.5% 0.163 48.998)  -800%,
+    oklch(55.5% 0.163 48.998) -800%,
     rgba(255, 117, 140, 0) 70%
   );
   background-repeat: no-repeat;
@@ -26,4 +26,16 @@ html::before {
 .center {
   left: 50%;
   translate: -50%;
+}
+
+.animate-loading {
+  animation: loading 1.75s infinite linear;
+}
+@keyframes loading {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
 }

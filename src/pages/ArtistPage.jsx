@@ -1,4 +1,4 @@
-import MainContainer from "../components/MainContainer";
+import MainContainer from "../components/layout/MainContainer";
 import Navbar from "../components/Navbar";
 
 export default function ArtistPage() {
