@@ -27,7 +27,12 @@ export default function SongPage({ accessToken }) {
       .then((data) => {
         setSongs(data.tracks.items);
       })
-      .catch((error) => console.error("Error:", error));
+      .catch((error) => {
+        if (error.name === "AbortError") {
+          return;
+        }
+        console.error("Error:", error);
+      });
 
     return function () {
       controller.abort();
