@@ -17,7 +17,7 @@ export default function App() {
         setIsLoading(true);
         const res = await fetch(`http://${BASE_URL}/songs`);
         const data = await res.json();
-        console.log(data);
+        setSongs(data)
       } catch (err) {
         console.error("error: " + err.message);
       } finally {

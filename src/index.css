@@ -3,8 +3,6 @@
 
 html {
   position: relative;
-  height: 100dvh;
-  overflow-y: hidden;
   font-family: "Quicksand";
   background: #18181b;
 }
@@ -22,7 +20,28 @@ html::before {
   pointer-events: none;
   z-index: -1;
 }
-
+html,
+#root {
+  height: 100dvh;
+  overflow-y: auto;
+}
+.songList {
+  scrollbar-gutter: none;
+}
+.songList::-webkit-scrollbar {
+  width: 0.65rem;
+}
+.songList::-webkit-scrollbar-thumb {
+  background: transparent;
+  transition: all 0.5s ease;
+}
+.songList:hover::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 40%);
+  border-radius: 0.2rem;
+}
+.songList::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 70%);
+}
 .center {
   left: 50%;
   translate: -50%;
