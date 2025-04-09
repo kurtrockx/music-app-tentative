@@ -3,6 +3,7 @@ import Logo from "../components/Logo";
 import MainContainer from "../components/layout/MainContainer";
 import SectionContainer from "../components/layout/SectionContainer";
 import Loader from "../components/Loader";
+import { Link } from "react-router-dom";
 
 export default function Homepage({ isLoading }) {
   return isLoading ? (
@@ -20,7 +21,9 @@ export default function Homepage({ isLoading }) {
         distinctio, consectetur sequi perferendis? Itaque mollitia in voluptatem
         enim commodi.
       </p>
-      <Button className={"mx-auto"}>Get Started</Button>
+      <Link to="/newRelease">
+        <Button className={"mx-auto"}>Get Started</Button>
+      </Link>
     </SectionContainer>
   );
 }

@@ -8,6 +8,7 @@ export default function NavSearchbar() {
 
   function handleParamChange(e) {
     if (e.target.value === "") {
+      setQuery("");
       navigate("/newRelease");
       return;
     }

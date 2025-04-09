@@ -21,7 +21,7 @@ export default function NewReleasesPage({ accessToken }) {
     reducer,
     initialState,
   );
-  const sampleRef = useRef(null);
+  const containerEndRef = useRef(null);
 
   useEffect(() => {
     if (!accessToken) return;
@@ -43,7 +43,9 @@ export default function NewReleasesPage({ accessToken }) {
   }, [accessToken, limit]);
 
   useEffect(() => {
-    const callback = (entries, observer) => {
+    const currentRef = containerEndRef.current;
+
+    const callback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           dispatch({ type: "addTenSongs" });
@@ -57,13 +59,13 @@ export default function NewReleasesPage({ accessToken }) {
       threshold: 1.0,
     });
 
-    if (sampleRef.current) {
-      observer.observe(sampleRef.current);
+    if (containerEndRef.current) {
+      observer.observe(containerEndRef.current);
     }
 
     return () => {
-      if (sampleRef.current) {
-        observer.unobserve(sampleRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, [newlyReleased]);
@@ -77,7 +79,7 @@ export default function NewReleasesPage({ accessToken }) {
         {newlyReleased.map((song) => (
           <Song song={song} key={song.id} newRelease={true} />
         ))}
-        <div ref={sampleRef}></div>
+        <div ref={containerEndRef}></div>
       </SongList>
     </SectionContainer>
   );
