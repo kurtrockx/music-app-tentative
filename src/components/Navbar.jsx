@@ -4,6 +4,7 @@ import Logo from "./Logo";
 import NavSearchbar from "./NavSearchbar";
 
 export default function Navbar() {
+
   return (
     <nav
       className={`relative flex items-center justify-between py-4 ${styles.nav}`}
@@ -15,10 +16,10 @@ export default function Navbar() {
       <ul className="center absolute flex divide-x divide-white overflow-hidden rounded-full border border-white">
         <li>
           <NavLink
-            to="/song"
+            to="/newRelease"
             className="block px-6 py-2 text-sm font-semibold text-white hover:bg-white/4"
           >
-            SONG
+            NEW RELEASES
           </NavLink>
         </li>
         <li>
@@ -38,7 +39,7 @@ export default function Navbar() {
           </NavLink>
         </li>
       </ul>
-      <NavSearchbar />
+      <NavSearchbar  />
     </nav>
   );
 }

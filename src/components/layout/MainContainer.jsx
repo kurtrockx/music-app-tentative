@@ -1,6 +1,8 @@
-export default function MainContainer({ children, className = '' }) {
+export default function MainContainer({ children, className = "" }) {
   return (
-    <main className={`mx-auto max-w-7xl px-4 h-full ${className}`}>
+    <main
+      className={`mx-auto flex h-full max-w-7xl flex-col px-4 ${className}`}
+    >
       {children}
     </main>
   );
