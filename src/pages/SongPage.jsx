@@ -9,7 +9,7 @@ export default function SongPage({ songs }) {
   return (
     <MainContainer className={"flex flex-col justify-between"}>
       <Navbar />
-      <SectionContainer className={"flex h-10/12 flex-col"}>
+      <SectionContainer className={"flex h-10/12 flex-col gap-2"}>
         <div className="flex">
           <TopSearchSong />
         </div>
