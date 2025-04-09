@@ -7,7 +7,7 @@ import TabLinks from "./TabLinks";
 import SideBar from "./SideBar";
 import burgerIcon from "../assets/burger.svg";
 
-export default function Navbar() {
+export default function Navbar({ setQuery, query }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   function handleSidebarToggle() {

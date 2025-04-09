@@ -1,5 +1,5 @@
 import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Homepage from "./pages/HomePage";
 import SongPage from "./pages/SongPage";
 import ArtistPage from "./pages/ArtistPage";
@@ -18,7 +18,7 @@ export default function App() {
   const accessToken = useSpotifyToken(base64Credentials);
 
   return (
-    <HashRouter>
+    <BrowserRouter>
       <MainContainer>
         <Navbar />
         <Routes>
@@ -28,13 +28,13 @@ export default function App() {
             element={<NewReleasesPage accessToken={accessToken} />}
           />
           <Route
-            path="/search/:id"
+            path="/search"
             element={<SongPage accessToken={accessToken} />}
           />
           <Route path="/artist" element={<ArtistPage />} />
           <Route path="/favorite" element={<FavoritePage />} />
         </Routes>
       </MainContainer>
-    </HashRouter>
+    </BrowserRouter>
   );
 }

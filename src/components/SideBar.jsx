@@ -39,10 +39,10 @@ export default function SideBar({
         </li>
         <li>
           <NavLink
-            to="/artist"
+            to="/search"
             className="block px-6 py-2 text-sm font-semibold text-white hover:bg-white/4"
           >
-            ARTIST
+            BROWSE
           </NavLink>
         </li>
         <li>
