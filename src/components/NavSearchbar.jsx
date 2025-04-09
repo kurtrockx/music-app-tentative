@@ -1,9 +1,11 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import searchIcon from "../assets/searchIcon.svg";
 import { useState } from "react";
 
 export default function NavSearchbar() {
   const [query, setQuery] = useState("");
+  const [curQuery, setCurQuery] = useState("");
+  const { id } = useParams();
   const navigate = useNavigate();
 
   function handleQuery(e) {
@@ -16,8 +18,10 @@ export default function NavSearchbar() {
 
   function handleFormSubmission(e) {
     e.preventDefault();
+    if (query === curQuery) return;
     if (query === "") return;
     navigate(`/search/${query}`);
+    setCurQuery(query);
   }
 
   return (
