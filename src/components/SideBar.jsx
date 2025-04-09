@@ -8,7 +8,7 @@ export default function SideBar({
 }) {
   return (
     <div
-      className={`fixed top-0 left-0 min-h-dvh w-dvw bg-black/50 ${bgClassName}`}
+      className={`fixed top-0 left-0 z-2 min-h-dvh w-dvw bg-black/50 ${bgClassName}`}
     >
       <ul
         className={`fixed flex h-full w-96 max-w-full flex-col gap-2 bg-black/90 p-2 duration-200 starting:-translate-x-full ${sideClassName} `}
