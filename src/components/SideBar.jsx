@@ -23,6 +23,14 @@ export default function SideBar({
         </button>
         <li>
           <NavLink
+            to="/"
+            className="block px-6 py-2 text-sm font-semibold text-white hover:bg-white/4"
+          >
+            HOME
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
             to="/newRelease"
             className="block px-6 py-2 text-sm font-semibold text-white hover:bg-white/4"
           >
