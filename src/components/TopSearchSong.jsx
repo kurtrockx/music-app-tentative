@@ -6,10 +6,10 @@ export default function TopSearchSong() {
         alt="song image"
         className="block object-cover"
       />
-      <div className="flex h-full flex-1 flex-col bg-gradient-to-b from-transparent from-40% to-white/2 px-4 py-6 duration-500">
-        <h1 className="text-4xl text-white">Sample Title</h1>
+      <div className="flex h-full flex-1 flex-col bg-gradient-to-br from-transparent from-20% to-white/4 px-4 py-6 duration-500">
+        <h1 className="text-4xl text-white font-semibold">Understand</h1>
         <h2 className="text-base text-white/40">Album: (Alumni)</h2>
-        <h3 className="text-white/80">Artists: Sample Artist</h3>
+        <h3 className="text-white/80">Artist: Boywithuke</h3>
         <p className="mt-auto self-end text-sm">Duration: 3:54</p>
       </div>
     </article>
