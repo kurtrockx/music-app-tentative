@@ -13,13 +13,21 @@ export default function TopSearchSong({ song }) {
   }).format(new Date(song.album.release_date));
 
   return (
-    <article className="col-span-2 flex h-48 w-full cursor-pointer place-self-end overflow-hidden rounded-xl bg-black/40 text-white hover:bg-white/10 active:bg-black">
+    <article className="col-span-2 flex h-48 w-full cursor-pointer place-self-end overflow-hidden rounded-xl bg-black/40 text-white hover:bg-white/10 active:bg-black max-md:h-36">
       <img src={image} alt="song image" className="block object-cover" />
-      <div className="flex h-full flex-1 flex-col bg-gradient-to-br from-transparent from-20% to-white/4 px-4 py-6 duration-500">
-        <h1 className="text-4xl font-semibold text-white">{name}</h1>
-        <h2 className="text-base text-white/40">{releaseDate}</h2>
-        <h3 className="text-white/80">Artists: {artists}</h3>
-        <p className="mt-auto self-end text-sm">Duration: {duration}</p>
+      <div className="flex h-full flex-1 flex-col bg-gradient-to-br from-transparent from-20% to-white/4 px-4 py-6 duration-500 max-sm:gap-2">
+        <h1 className="line-clamp-2 text-4xl font-semibold text-white max-md:text-xl max-sm:text-base">
+          {name}
+        </h1>
+        <h2 className="text-white/40 max-md:text-sm max-sm:hidden">
+          {releaseDate}
+        </h2>
+        <h3 className="text-white/80 max-md:text-sm max-sm:text-xs">
+          Artists: {artists}
+        </h3>
+        <p className="mt-auto self-end text-sm max-md:text-xs max-sm:hidden">
+          Duration: {duration}
+        </p>
       </div>
     </article>
   );
