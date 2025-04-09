@@ -6,15 +6,14 @@ export default function NavSearchbar() {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
 
-  function handleParamChange(e) {
+  function handleQuery(e) {
+    setQuery(e.target.value);
     if (e.target.value === "") {
-      setQuery("");
       navigate("/newRelease");
       return;
     }
-    setQuery(e.target.value);
-    navigate(`/search/${e.target.value}`);
   }
+
   function handleFormSubmission(e) {
     e.preventDefault();
     if (query === "") return;
@@ -30,7 +29,7 @@ export default function NavSearchbar() {
         type="text"
         className="w-32 px-px text-white outline-0 duration-200 focus:w-48"
         placeholder="Search"
-        onChange={handleParamChange}
+        onChange={handleQuery}
       />
       <button>
         <img
