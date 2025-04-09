@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useEffect, useReducer, useState } from "react";
+import { useState } from "react";
 import Homepage from "./pages/HomePage";
 import SongPage from "./pages/SongPage";
 import ArtistPage from "./pages/ArtistPage";
@@ -13,11 +13,9 @@ const clientId = "fc11c6d55eee4959a8ce90156b0e90ae";
 const clientSecret = "e7d5a5b1d4ed455c933c9522e4782d77";
 const base64Credentials = btoa(`${clientId}:${clientSecret}`);
 
-
 export default function App() {
   const [isLoading, setIsLoading] = useState(false);
   const accessToken = useSpotifyToken(base64Credentials);
-
 
   return (
     <BrowserRouter>

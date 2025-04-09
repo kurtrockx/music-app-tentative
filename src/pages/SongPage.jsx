@@ -28,9 +28,8 @@ export default function SongPage({ accessToken }) {
         setSongs(data.tracks.items);
       })
       .catch((error) => {
-        if (error.name === "AbortError") {
-          return;
-        }
+        if (error.name === "AbortError") return;
+
         console.error("Error:", error);
       });
 

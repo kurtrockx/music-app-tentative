@@ -16,7 +16,7 @@ export default function NavSearchbar() {
   }
   function handleFormSubmission(e) {
     e.preventDefault();
-    if(query === '') return
+    if (query === "") return;
     navigate(`/search/${query}`);
   }
 
