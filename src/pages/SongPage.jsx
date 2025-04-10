@@ -7,6 +7,6 @@ export default function SongPage({ accessToken }) {
 
   const q = searchParams.get("q") || "";
 
-  if (q === "") return <Genre />;
+  if (q === "") return <Genre accessToken={accessToken} />;
   return <SearchedSongs accessToken={accessToken} query={q} />;
 }

@@ -1,5 +1,5 @@
 import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Homepage from "./pages/HomePage";
 import SongPage from "./pages/SongPage";
 import ArtistPage from "./pages/ArtistPage";

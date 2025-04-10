@@ -24,6 +24,7 @@ export default function SearchedSongs({ accessToken, query }) {
       .then((response) => response.json())
       .then((data) => {
         setSongs(data.tracks.items);
+        console.log(data.tracks.items);
       })
       .catch((error) => {
         if (error.name === "AbortError") return;
