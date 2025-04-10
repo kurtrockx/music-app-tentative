@@ -1,20 +1,21 @@
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import searchIcon from "../assets/searchIcon.svg";
-import { useState } from "react";
 
 export default function NavSearchbar() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const q = searchParams.get("q");
 
   function handleClick() {
-    if (q) return;
+    if (location.pathname === "/search") return;
     navigate("/search");
   }
 
   function handleChange(e) {
     const { value } = e.target;
     setSearchParams({ q: value }, { replace: true });
+    if (value === "") return setSearchParams({}, {replace: true});
   }
 
   return (
@@ -23,7 +24,7 @@ export default function NavSearchbar() {
         type="text"
         className="w-32 px-px text-white outline-0 duration-200 focus:w-48"
         placeholder="Search"
-        value={q}
+        value={q || ""}
         onChange={handleChange}
         onClick={handleClick}
       />
