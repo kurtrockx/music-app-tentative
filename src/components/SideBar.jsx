@@ -54,6 +54,7 @@ export default function SideBar({
           </NavLink>
         </li>
       </ul>
+      <div className="h-dvh w-full" onClick={onClick}></div>
     </div>
   );
 }
