@@ -5,7 +5,7 @@ import Loader from "../components/Loader.jsx";
 import Song from "../components/Song";
 import TopSearchSong from "../components/TopSearchSong.jsx";
 
-export default function SearchedSongs({ accessToken, query }) {
+export default function SearchedSongs({ accessToken, query, onAddFav, favorites }) {
   const [songs, setSongs] = useState([]);
   const topSearch = songs[0];
 
@@ -46,7 +46,12 @@ export default function SearchedSongs({ accessToken, query }) {
       </div>
       <SongList>
         {songs.map((song) => (
-          <Song song={song} key={song.id} />
+          <Song
+            song={song}
+            key={song.id}
+            onAddFav={onAddFav}
+            favorites={favorites}
+          />
         ))}
       </SongList>
     </SectionContainer>

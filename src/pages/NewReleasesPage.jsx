@@ -16,7 +16,7 @@ function reducer(state, action) {
   }
 }
 
-export default function NewReleasesPage({ accessToken }) {
+export default function NewReleasesPage({ accessToken, onAddFav, favorites}) {
   const [{ newlyReleased, limit }, dispatch] = useReducer(
     reducer,
     initialState,
@@ -77,7 +77,13 @@ export default function NewReleasesPage({ accessToken }) {
       <h1 className="font-bold text-white">New Releases</h1>
       <SongList>
         {newlyReleased.map((song) => (
-          <Song song={song} key={song.id} newRelease={true} />
+          <Song
+            song={song}
+            key={song.id}
+            newRelease={true}
+            onAddFav={onAddFav}
+            favorites={favorites}
+          />
         ))}
         <div ref={containerEndRef}></div>
       </SongList>

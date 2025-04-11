@@ -1,15 +1,11 @@
 import Button from "../components/Button";
 import Logo from "../components/Logo";
-import MainContainer from "../components/layout/MainContainer";
 import SectionContainer from "../components/layout/SectionContainer";
-import Loader from "../components/Loader";
 import { Link } from "react-router-dom";
 
-export default function Homepage({ isLoading }) {
-  return isLoading ? (
-    <Loader />
-  ) : (
-    <SectionContainer className={"mt-20 space-y-4 max-md:mt-8 px-4"}>
+export default function Homepage() {
+  return (
+    <SectionContainer className={"mt-20 space-y-4 px-4 max-md:mt-8"}>
       <Logo height={400} className={"mx-auto max-md:max-h-40"} />
       <h1 className="text-center text-7xl font-bold text-white max-sm:text-5xl">
         MUSIC APP

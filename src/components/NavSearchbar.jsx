@@ -15,7 +15,7 @@ export default function NavSearchbar() {
   function handleChange(e) {
     const { value } = e.target;
     setSearchParams({ q: value }, { replace: true });
-    if (value === "") return setSearchParams({}, {replace: true});
+    if (value === "") return setSearchParams({}, { replace: true });
   }
 
   return (

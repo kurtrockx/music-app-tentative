@@ -2,7 +2,6 @@ import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
 import { useState } from "react";
 import Homepage from "./pages/HomePage";
 import SongPage from "./pages/SongPage";
-import ArtistPage from "./pages/ArtistPage";
 import FavoritePage from "./pages/FavoritePage";
 import useSpotifyToken from "./hooks/useSpotifyToken";
 import NewReleasesPage from "./pages/NewReleasesPage";
@@ -14,24 +13,43 @@ const clientSecret = "e7d5a5b1d4ed455c933c9522e4782d77";
 const base64Credentials = btoa(`${clientId}:${clientSecret}`);
 
 export default function App() {
-  const [isLoading, setIsLoading] = useState(false);
   const accessToken = useSpotifyToken(base64Credentials);
+
+  const [favorites, setFavorites] = useState([{ name: "hello" }]);
+
+  function handleAddFavorite(song) {
+    const alreadyFav = favorites.filter((fav) => fav.id === song.id).length;
+    if (alreadyFav)
+      return setFavorites((favs) => favs.filter((fav) => fav.id !== song.id));
+    setFavorites((favs) => [...favs, song]);
+  }
 
   return (
     <BrowserRouter>
       <MainContainer>
         <Navbar />
         <Routes>
-          <Route index element={<Homepage isLoading={isLoading} />} />
+          <Route index element={<Homepage />} />
           <Route
             path="/newRelease"
-            element={<NewReleasesPage accessToken={accessToken} />}
+            element={
+              <NewReleasesPage
+                accessToken={accessToken}
+                onAddFav={handleAddFavorite}
+                favorites={favorites}
+              />
+            }
           />
           <Route
             path="/search"
-            element={<SongPage accessToken={accessToken} />}
+            element={
+              <SongPage
+                accessToken={accessToken}
+                onAddFav={handleAddFavorite}
+                favorites={favorites}
+              />
+            }
           />
-          <Route path="/artist" element={<ArtistPage />} />
           <Route path="/favorite" element={<FavoritePage />} />
         </Routes>
       </MainContainer>
