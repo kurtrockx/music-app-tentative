@@ -15,13 +15,13 @@ const base64Credentials = btoa(`${clientId}:${clientSecret}`);
 export default function App() {
   const accessToken = useSpotifyToken(base64Credentials);
 
-  const [favorites, setFavorites] = useState([{ name: "hello" }]);
+  const [favorites, setFavorites] = useState([]);
 
-  function handleAddFavorite(song) {
+  function handleAddFavorite(song, newRelease) {
     const alreadyFav = favorites.filter((fav) => fav.id === song.id).length;
     if (alreadyFav)
       return setFavorites((favs) => favs.filter((fav) => fav.id !== song.id));
-    setFavorites((favs) => [...favs, song]);
+    setFavorites((favs) => [...favs, {...song, newRelease}]);
   }
 
   return (
@@ -50,7 +50,15 @@ export default function App() {
               />
             }
           />
-          <Route path="/favorite" element={<FavoritePage />} />
+          <Route
+            path="/favorite"
+            element={
+              <FavoritePage
+                onAddFav={handleAddFavorite}
+                favorites={favorites}
+              />
+            }
+          />
         </Routes>
       </MainContainer>
     </BrowserRouter>

@@ -17,7 +17,7 @@ export default function Song({
     : (song.duration_ms / 1000 / 60).toFixed(2).split(".").join(":");
 
   return (
-    <article className="flex cursor-pointer items-center rounded-xl hover:bg-white/5 active:bg-black/20">
+    <article className="flex cursor-pointer items-center rounded-xl hover:bg-white/5 active:bg-black/20 max-h-24">
       <img
         src={image}
         alt={name}
@@ -28,7 +28,7 @@ export default function Song({
           <h1 className="line-clamp-1 text-lg font-medium text-white max-md:text-base max-sm:text-sm">
             {name}
           </h1>
-          <button onClick={() => onAddFav(song)}>
+          <button onClick={() => onAddFav(song, newRelease)}>
             <img
               src={checkFavorites ? heart : unheart}
               alt="heart"
