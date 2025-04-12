@@ -21,7 +21,7 @@ export default function App() {
     const alreadyFav = favorites.filter((fav) => fav.id === song.id).length;
     if (alreadyFav)
       return setFavorites((favs) => favs.filter((fav) => fav.id !== song.id));
-    setFavorites((favs) => [...favs, {...song, newRelease}]);
+    setFavorites((favs) => [...favs, { ...song, newRelease }]);
   }
 
   return (

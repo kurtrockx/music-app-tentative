@@ -5,9 +5,15 @@ import Loader from "../components/Loader.jsx";
 import Song from "../components/Song";
 import TopSearchSong from "../components/TopSearchSong.jsx";
 
-export default function SearchedSongs({ accessToken, query, onAddFav, favorites }) {
+export default function SearchedSongs({
+  accessToken,
+  query,
+  onAddFav,
+  favorites,
+}) {
   const [songs, setSongs] = useState([]);
   const topSearch = songs[0];
+  const [error, setError] = useState("");
 
   useEffect(() => {
     if (!accessToken) return;
@@ -28,8 +34,7 @@ export default function SearchedSongs({ accessToken, query, onAddFav, favorites 
       })
       .catch((error) => {
         if (error.name === "AbortError") return;
-
-        console.error("Error:", error);
+        setError(error.message);
       });
 
     return function () {
@@ -37,7 +42,9 @@ export default function SearchedSongs({ accessToken, query, onAddFav, favorites 
     };
   }, [accessToken, setSongs, query]);
 
-  return !songs.length ? (
+  return error ? (
+    <ErrorPage message={error} />
+  ) : !songs.length ? (
     <Loader />
   ) : (
     <SectionContainer className={"mt-auto flex h-10/12 flex-col gap-2"}>

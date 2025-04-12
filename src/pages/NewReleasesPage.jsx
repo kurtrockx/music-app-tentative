@@ -1,8 +1,9 @@
-import { useEffect, useReducer, useRef } from "react";
+import { useEffect, useReducer, useRef, useState } from "react";
 import SectionContainer from "../components/layout/SectionContainer";
 import SongList from "../components/layout/SongList";
 import Loader from "../components/Loader";
 import Song from "../components/Song";
+import ErrorPage from "./ErrorPage";
 
 const initialState = { newlyReleased: [], limit: 16 };
 function reducer(state, action) {
@@ -16,12 +17,13 @@ function reducer(state, action) {
   }
 }
 
-export default function NewReleasesPage({ accessToken, onAddFav, favorites}) {
+export default function NewReleasesPage({ accessToken, onAddFav, favorites }) {
   const [{ newlyReleased, limit }, dispatch] = useReducer(
     reducer,
     initialState,
   );
   const containerEndRef = useRef(null);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     if (!accessToken) return;
@@ -36,7 +38,9 @@ export default function NewReleasesPage({ accessToken, onAddFav, favorites}) {
         .then((data) => {
           dispatch({ type: "setNewReleases", payload: data.albums.items });
         })
-        .catch((error) => console.error("Error:", error));
+        .catch((error) => {
+          setError(error.message);
+        });
     }
 
     fetchNewReleases();
@@ -70,7 +74,9 @@ export default function NewReleasesPage({ accessToken, onAddFav, favorites}) {
     };
   }, [newlyReleased]);
 
-  return !newlyReleased.length ? (
+  return error ? (
+    <ErrorPage message={error} />
+  ) : !newlyReleased.length ? (
     <Loader />
   ) : (
     <SectionContainer className={"mt-auto flex h-10/12 flex-col gap-2"}>
