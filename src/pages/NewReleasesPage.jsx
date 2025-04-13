@@ -5,13 +5,18 @@ import Loader from "../components/Loader";
 import Song from "../components/Song";
 import ErrorPage from "./ErrorPage";
 
+const LOADLIMIT = 46;
+
 const initialState = { newlyReleased: [], limit: 16 };
 function reducer(state, action) {
   switch (action.type) {
     case "setNewReleases":
       return { ...state, newlyReleased: action.payload };
     case "addTenSongs":
-      return { ...state, limit: state.limit + 10 };
+      return {
+        ...state,
+        limit: state.limit < LOADLIMIT ? state.limit + 10 : state.limit,
+      };
     default:
       return state;
   }
@@ -37,6 +42,7 @@ export default function NewReleasesPage({ accessToken, onAddFav, favorites }) {
         .then((response) => response.json())
         .then((data) => {
           dispatch({ type: "setNewReleases", payload: data.albums.items });
+          setError("");
         })
         .catch((error) => {
           setError(error.message);

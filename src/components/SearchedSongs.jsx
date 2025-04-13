@@ -4,6 +4,7 @@ import SongList from "../components/layout/SongList";
 import Loader from "../components/Loader.jsx";
 import Song from "../components/Song";
 import TopSearchSong from "../components/TopSearchSong.jsx";
+import ErrorPage from "../pages/ErrorPage.jsx";
 
 export default function SearchedSongs({
   accessToken,
@@ -18,6 +19,8 @@ export default function SearchedSongs({
   useEffect(() => {
     if (!accessToken) return;
 
+    setError("");
+
     const controller = new AbortController();
     const { signal } = controller;
 
@@ -30,11 +33,10 @@ export default function SearchedSongs({
       .then((response) => response.json())
       .then((data) => {
         setSongs(data.tracks.items);
-        console.log(data.tracks.items);
       })
       .catch((error) => {
         if (error.name === "AbortError") return;
-        setError(error.message);
+        setError("Song not found :(");
       });
 
     return function () {
