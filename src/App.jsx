@@ -1,4 +1,4 @@
-import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
+import {  HashRouter, Route, Routes } from "react-router-dom";
 import { useState } from "react";
 import Homepage from "./pages/HomePage";
 import SongPage from "./pages/SongPage";
@@ -25,7 +25,7 @@ export default function App() {
   }
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <MainContainer>
         <Navbar />
         <Routes>
@@ -61,6 +61,6 @@ export default function App() {
           />
         </Routes>
       </MainContainer>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
