@@ -1,4 +1,4 @@
-import {  HashRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import { useState } from "react";
 import Homepage from "./pages/HomePage";
 import SongPage from "./pages/SongPage";
